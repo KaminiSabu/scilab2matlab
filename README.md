@@ -3,7 +3,9 @@ Each file in the repository is named after the function contained in it.
 ##### 1) ca2tf -- Convert coupled allpass filter to transfer function form
 
 ###### Syntax --> 
+
 [b,a,bp]=ca2tf(d1,d2,beta)
+
 ###### Input Arguments -- 
 d1 - real or complex vector - denominator coefficients of transfer function of first filter
 
