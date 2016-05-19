@@ -1,3 +1,12 @@
+//Name of Developer -- Kamini Sabu
+//ismaxphase -- Determine whether filter is maximum phase
+//Syntax --> flag = ismaxphase(b,a)
+//Input Arguments --
+//b - real or complex vector - coefficients of numerator of the filter
+//a - real or complex vector - coefficients of denominator of the filter
+//Output Arguments --
+//flag - Boolean number
+//References - MATLAB Help
 
 function [factoflag]=ismaxphase(b,a)
 //a=[1 -6 12 -8]
