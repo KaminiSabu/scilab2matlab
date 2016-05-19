@@ -1,1 +1,20 @@
 
+function [b,a,bp]=ca2tf(d1,d2,beta)
+
+//d1=[2+%i 3 2]
+//d2=[1 5 10]
+//beta=1
+
+n1=flipdim(conj(d1),2);                                      //numerator of first filter transfer function H1(z)
+n2=flipdim(conj(d2),2);                                      //numerator of second filter transfer function H2(z)
+a=convol(d1,d2);                                             //denominator of coupled filter transfer function H(z)
+// if d1 and d2 have real coefficients and beta is 1
+if beta==1 & isreal(d1)==%t & isreal(d2)==%t then
+b=(convol(n1,d2)+convol(n2,d1))/2;                           //numerator of coupled filter regular output transfer function H(z)
+bp=(convol(n1,d2)-convol(n2,d1))/2;                          //numerator of coupled filter power compementary output transfer function G(z)
+else
+b=(conj(beta)*convol(n1,d2)+beta*convol(n2,d1))/2;           //numerator of coupled filter regular output transfer function H(z)
+bp=imult((conj(beta)*convol(n1,d2)-beta*convol(n2,d1)))/2;   //numerator of coupled filter power compementary output transfer function G(z)
+end
+
+endfunction
