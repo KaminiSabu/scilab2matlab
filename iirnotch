@@ -13,6 +13,12 @@ function [n,d]=iirnotch(w0, bw)
 //w0=1/3
 //bw=1/12
 
+if (w0>=1) | (w0<=0) then
+    disp('w0 must have value between 0 and 1');
+elseif  (bw>=1) | (bw<=0) then
+    disp('bw must have value between 0 and 1');
+else
+
 bw1=%pi*bw/2;       //notch frequency to cutoff frequency
 w=%pi*w0            //notch frequency
 k2=(1-tan(bw1))/(1+tan(bw1));   //
@@ -24,5 +30,7 @@ n(3)=n(1);
 d(1)=1;
 d(2)=-(1+k2)*cos(w);
 d(3)=k2;
+
+end
 
 endfunction
