@@ -1,3 +1,16 @@
+//Name of Developer -- Kamini Sabu
+// ca2tf -- It convert coupled allpass filter to transfer function form
+//Syntax -->
+//[b,a,bp]=ca2tf(d1,d2,beta)
+//Input Arguments --
+//d1 - real or complex vector - denominator coefficients of transfer function of first filter
+//d2 - real or complex vector - denominator coefficients of transfer function of second filter
+//beta - real or complex scalar
+//Output Arguments --
+//b - real or complex vector - coefficients of numerator of the coupled all pass filter transfer function
+//a - real or complex vector - coefficients of denominator of the coupled all pass filter transfer function
+//bp - real or complex vector - coefficients of numerator of the power complementary filter transfer function
+// References -- MATLAB help
 
 function [b,a,bp]=ca2tf(d1,d2,beta)
 
@@ -12,6 +25,7 @@ a=convol(d1,d2);                                             //denominator of co
 if beta==1 & isreal(d1)==%t & isreal(d2)==%t then
 b=(convol(n1,d2)+convol(n2,d1))/2;                           //numerator of coupled filter regular output transfer function H(z)
 bp=(convol(n1,d2)-convol(n2,d1))/2;                          //numerator of coupled filter power compementary output transfer function G(z)
+//if d1 or d2 or contains complex terms or beta is not 1
 else
 b=(conj(beta)*convol(n1,d2)+beta*convol(n2,d1))/2;           //numerator of coupled filter regular output transfer function H(z)
 bp=imult((conj(beta)*convol(n1,d2)-beta*convol(n2,d1)))/2;   //numerator of coupled filter power compementary output transfer function G(z)
