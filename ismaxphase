@@ -1,0 +1,11 @@
+
+function [factoflag]=ismaxphase(b,a)
+//a=[1 -6 12 -8]
+facto=roots(b)              //roots of numerator polynomial
+factomag=abs(facto)
+factoflag=(factomag>1)      //check if all zeros lie within unit circle in z-plane
+disp(factoflag,facto)
+if factoflag==%t then flag=%t
+else flag=%f
+end
+endfunction
