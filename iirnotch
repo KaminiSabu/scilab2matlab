@@ -1,3 +1,13 @@
+//Name of Developer -- Kamini Sabu
+//iirnotch -- It designs second-order IIR notch filter fo rgiven notch frequency
+//Syntax --> [n,d] = iirnotch(w0,bw)
+//Input Arguments --
+//w0 - real number between 0 and 1 - cutoff frequency of the filter
+//bw - real number between 0 and 1 - bandwidth of the filter
+//Output Arguments --
+//n - real vector - coefficients of numerator of the filter
+//d - real vector - coefficients of denominator of the filter 
+// References -- Y. V. Joshi and S. C. Dutta Roy, "DESIGN OF IIR DIGITAL NOTCH FILTERS", CIRCUITS SYSTEMS SIGNAL PROCESSING, VOL. 16, NO. 4, 1997, PP. 415-427
 
 function [n,d]=iirnotch(w0, bw)
 //w0=1/3
