@@ -1,30 +1,29 @@
 # scilab2matlab
 
-Two Functions
-
-ca2tf -- Convert coupled allpass filter to transfer function form
+1) ca2tf -- Convert coupled allpass filter to transfer function form
 
 Syntax -->
-
-[b,a]=ca2tf(d1,d2)
-
-[b,a]=ca2tf(d1,d2,beta)
-
-[b,a,bp]=ca2tf(d1,d2)
 
 [b,a,bp]=ca2tf(d1,d2,beta)
 
+Input Arguments -- 
+
+d1 - real or complex vector - denominator coefficients of transfer function of first filter
+
+d2 - real or complex vector - denominator coefficients of transfer function of second filter
+
+beta - real or complex scalar
+
+Output Arguments -- 
+
+b - real or complex vector - coefficients of numerator of the coupled all pass filter H(z) transfer function
+
+a - real or complex vector - coefficients of denominator of the coupled all pass filter H(z) transfer function
+
+bp - real or complex vector - coefficients of numerator of the power complementary filter G(z) transfer function
 
 
-firlp2lp -- Convert FIR Type I lowpass to FIR Type 1 lowpass with inverse bandwidth
-
-Syntax -->
-
-g = firlp2lp(b)
-
-
-
-euclidfactors -- Euclid factors for multirate filter
+3) euclidfactors -- Euclid factors for multirate filter
 
 Syntax -->
 
@@ -32,66 +31,40 @@ Syntax -->
 
 
 
-ismaxphase -- Determine whether filter is maximum phase
+2) ismaxphase -- Determine whether filter is maximum phase
 
 Syntax -->
 
 flag = ismaxphase(b,a)
 
-flag = ismaxphase(sos)
+Input Arguments -- 
 
-flag = ismaxphase(d)
+b - real or complex vector - coefficients of numerator of the filter 
 
-flag = ismaxphase(...,tol)
-
-flag = ismaxphase(hs,...)
-
-flag = ismaxphase(hs,'Arithmetic',arithtype)
-
-flag = ismaxphase(h)
+a - real or complex vector - coefficients of denominator of the filter 
 
 
+Output Arguments --
 
-Single Function
+flag - Boolean number
 
-iirnotch -- Second-order IIR notch filter
+
+
+4) iirnotch -- Second-order IIR notch filter
 
 Syntax -->
 
 [num,den] = iirnotch(w0,bw)
 
-[num,den] = iirnotch(w0,bw,ab)
+Input Arguments --
 
+w0 - real number between 0 and 1 - cutoff frequency of the filter
 
+bw - real number between 0 and 1 - bandwidth of the filter
 
-fircband -- Constrained-band equiripple FIR filter
+Output Arguments -- 
 
-Syntax -->
+b - real vector - coefficients of numerator of the filter
 
-b = fircband(n,f,a,w,c)
+a - real vector - coefficients of denominator of the filter 
 
-b = fircband(n,f,a,s)
-
-b = fircband(...,'1')
-
-b = fircband(...,'minphase')
-
-b = fircband(..., 'check')
-
-b = fircband(...,{lgrid})
-
-[b,err] = fircband(...)
-
-[b,err,res] = fircband(...)
-
-
-
-iircomb -- IIR comb notch or peak filter
-
-Syntax -->
-
-[num,den] = iircomb(n,bw)
-
-[num,den] = iircomb(n,bw,ab)
-
-[num,den] = iircomb(...,'type')
