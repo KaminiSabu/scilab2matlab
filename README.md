@@ -1,4 +1,6 @@
 # scilab2matlab
+
+## Name of Developer -- Kamini Sabu
 Each file in the repository is named after the function contained in it.
 ##### 1) ca2tf -- Convert coupled allpass filter to transfer function form
 
